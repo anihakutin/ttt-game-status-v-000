@@ -35,43 +35,17 @@ def won?(board)
 end
 
 def full?(board)
-  board.each do |i|
-    if i == "" || i == " "
-      return false
+  board.all? do |position|
+    if position == "X" || position == "O"
+      true
     end
   end
 end
 
 def draw?(board)
-  if won?(board) == false && !full?(board) == false
-    return true
-elsif  won?(board) == false && full?(board) == false
-  return false
-elsif !won?(board) == false
-  end
-end
-
-def over?(board)
-  if !won?(board) == false || draw?(board) == true || !full?(board) == false
+  if full?(board) == true && won?(board) == false
     return true
   else
     return false
-  end
-end
-
-def winner(board)
-if winner = won?(board) == false
-  return nil
-else
-  win_token = board[won?(board)[0]]
-end
-
-
-if win_token == "X"
-  return "X"
-elsif win_token == "O"
-  return "O"
-else
-  return false
   end
 end
