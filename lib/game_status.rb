@@ -55,3 +55,13 @@ def over?(board)
     true
   end
 end 
+
+def winner(board)
+  if won?(board) == false
+    return nil
+  end
+  if won?(board) == true
+    winner = board[won?(board)[0]]
+    return winner
+  end
+end
